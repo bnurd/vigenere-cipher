@@ -191,6 +191,7 @@ int main()
 	Crypt crypt(alphabet, key);
 
 	cout << "Input Text : " << text << endl;
+	cout << "Key : " << key << endl << endl;
 
 	// encode
 	char *encodedText = crypt.encodeVigenere(text);
