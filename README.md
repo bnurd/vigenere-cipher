@@ -7,6 +7,10 @@
 ---
 ## compile
 ```
+make
+```
+or
+```
 g++ crypt.cpp -o crypt.out
 ./crypt.out
 ```

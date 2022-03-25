@@ -21,7 +21,7 @@ public:
 
 		// default values
 		char tempAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		tempAlphabet[strlen(tempAlphabet)] = '\0';
+		tempAlphabet[std::strlen(tempAlphabet)] = '\0';
 
 		char *temp = tempAlphabet;
 		this->alphabet = temp;
@@ -118,6 +118,18 @@ public:
 		return decodedText;
 	}
 
+	void printTable()
+	{
+		for (int i = 0; i < strlen(alphabet); i++)
+		{
+			for (int j = 0; j < strlen(alphabet); j++)
+			{
+				cout << vigenere[i][j] << " ";
+			}
+			cout << endl;
+		}
+	}
+
 private:
 	char *alphabet;
 	char *cipherWord;
@@ -143,15 +155,6 @@ private:
 				vigenere[i][k] = alphabet[letterIndex];
 				letterIndex++;
 			}
-		}
-
-		for (int i = 0; i < strlen(alphabet); i++)
-		{
-			for (int j = 0; j < strlen(alphabet); j++)
-			{
-				cout << vigenere[i][j] << " ";
-			}
-			cout << endl;
 		}
 	}
 
@@ -194,6 +197,11 @@ int main()
 
 	cout << "Encoded Text --- : " << encodedText << endl;
 	cout << "Decoded Text --- : " << crypt.decodeVigenere(encodedText) << endl;
+
+	cout << endl
+		 << "------------- RESULT CHECK -------------" << endl;
+
+	crypt.printTable();
 
 	// wait process
 	int a;
